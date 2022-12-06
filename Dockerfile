@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG userid
@@ -12,7 +12,7 @@ COPY device-tree-compiler_1.4.7-4_amd64.deb .
 
 # Install required packages for building Debian
 RUN apt-get update
-RUN apt-get install -y repo git ssh make gcc libssl-dev liblz4-tool expect g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib unzip device-tree-compiler python-pip ncurses-dev python-pyelftools
+RUN apt-get install -y git ssh make gcc libssl-dev liblz4-tool expect g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib unzip device-tree-compiler python3-pip ncurses-dev python-pyelftools sudo
 
 # kmod: depmod is required by "make modules_install"
 RUN apt-get update && apt-get install -y kmod expect patchelf
@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y zip mtools
 RUN apt-get install -y binfmt-support qemu-user-static live-build
 RUN apt-get install -y bc time rsync
 RUN apt-get install -y zstd
+RUN apt-get install -y parted
 RUN apt-get update && apt-get install -y locales
 #RUN wget http://launchpadlibrarian.net/343927385/device-tree-compiler_1.4.5-3_amd64.deb
 RUN dpkg -i device-tree-compiler_1.4.7-4_amd64.deb
