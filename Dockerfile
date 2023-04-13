@@ -10,9 +10,6 @@ ARG username
 COPY packages /packages
 COPY device-tree-compiler_1.4.7-4_amd64.deb .
 
-RUN sed -i s/archive.ubuntu.com/ftp.ubuntu-tw.net/g /etc/apt/sources.list
-RUN sed -i s/security.ubuntu.com/ftp.ubuntu-tw.net/g /etc/apt/sources.list
-
 # Install required packages for building Debian
 RUN apt-get update
 RUN apt-get install -y git=1:2.25.1-1ubuntu3 ssh make gcc libssl-dev liblz4-tool expect g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib unzip device-tree-compiler python3-pip ncurses-dev python-pyelftools sudo
