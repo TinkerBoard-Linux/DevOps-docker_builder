@@ -22,6 +22,8 @@ RUN apt-get update && apt-get install -y kmod expect patchelf
 
 RUN apt-get update && apt-get install -y zip mtools
 
+RUN apt-get install -y libgmp-dev libmpc-dev python bsdmainutils
+
 # Install additional packages for building base debian system by ubuntu-build-service from linaro
 RUN apt-get install -y binfmt-support qemu-user-static live-build
 RUN apt-get install -y bc time rsync
