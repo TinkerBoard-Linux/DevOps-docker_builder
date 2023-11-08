@@ -9,6 +9,7 @@ ARG username
 # kmod: depmod is required by "make modules_install"
 COPY packages /packages
 COPY device-tree-compiler_1.4.7-4_amd64.deb .
+COPY ./qemu-aarch64-static .
 
 RUN sed -i s/archive.ubuntu.com/tw.archive.ubuntu.com/g /etc/apt/sources.list
 RUN sed -i s/security.ubuntu.com/tw.archive.ubuntu.com/g /etc/apt/sources.list
@@ -34,6 +35,8 @@ RUN apt-get update && apt-get install -y locales
 RUN dpkg -i device-tree-compiler_1.4.7-4_amd64.deb
 RUN dpkg -i /packages/* || apt-get install -f -y
 RUN rm device-tree-compiler_1.4.7-4_amd64.deb
+COPY qemu-aarch64-static /usr/bin/qemu-aarch64-static
+RUN rm qemu-aarch64-static
 
 RUN locale-gen en_US.UTF-8
 
