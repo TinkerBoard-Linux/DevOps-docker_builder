@@ -8,6 +8,7 @@ ARG username
 # Install required packages for building Tinker Board 2 Debian
 # kmod: depmod is required by "make modules_install"
 COPY packages /packages
+COPY ./qemu-aarch64-static .
 
 # Install required packages for building Debian
 RUN apt-get update
@@ -25,6 +26,8 @@ RUN apt-get install -y bc time rsync zstd python python3 file vim-common sudo
 RUN apt-get update && apt-get install -y locales
 RUN apt-get update && apt-get install -y bsdmainutils
 RUN dpkg -i /packages/* || apt-get install -f -y
+COPY qemu-aarch64-static /usr/bin/qemu-aarch64-static
+RUN rm qemu-aarch64-static
 
 RUN locale-gen en_US.UTF-8
 
