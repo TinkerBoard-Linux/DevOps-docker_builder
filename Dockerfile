@@ -20,6 +20,9 @@ RUN apt-get update && apt-get install -y kmod
 
 RUN apt-get update && apt-get install -y zip mtools
 
+#Install required packages to build Debian package
+RUN apt-get update && apt-get install -y dpkg-dev
+RUN apt-get update && apt-get install -y devscripts
 # Install additional packages for building base debian system by ubuntu-build-service from linaro
 #RUN apt-get install -y binfmt-support qemu-user-static live-build
 RUN apt-get update && apt-get install -y bc time rsync zstd python python3 file vim-common sudo
