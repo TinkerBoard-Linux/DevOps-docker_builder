@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y zip mtools
 
 # Install additional packages for building base debian system by ubuntu-build-service from linaro
 #RUN apt-get install -y binfmt-support qemu-user-static live-build
-RUN apt-get install -y bc time rsync zstd python python3 file vim-common sudo
+RUN apt-get update && apt-get install -y bc time rsync zstd python python3 file vim-common sudo
 RUN apt-get update && apt-get install -y locales
 RUN apt-get update && apt-get install -y bsdmainutils
 RUN dpkg -i /packages/* || apt-get install -f -y
