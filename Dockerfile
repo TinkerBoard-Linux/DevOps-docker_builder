@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y zip mtools
 RUN apt-get install -y libgmp-dev libmpc-dev python bsdmainutils
 
 #Install required packages to build Debian package
-RUN apt-get update && apt-get install -y dpkg-dev
+RUN apt-get update && apt-get install -y dpkg-dev debhelper
 RUN apt-get update && apt-get install -y devscripts
 # Install additional packages for building base debian system by ubuntu-build-service from linaro
 RUN apt-get install -y binfmt-support qemu-user-static live-build
