@@ -42,3 +42,5 @@ RUN groupadd -g $groupid $username && \
 ENV HOME=/home/$username
 ENV USER=$username
 WORKDIR /source
+
+RUN git config --global gc.autoDetach false
