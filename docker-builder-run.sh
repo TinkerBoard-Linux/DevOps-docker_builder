@@ -46,7 +46,7 @@ else
     fi
 fi
 
-DOCKER_IMAGE="asus/tinker_board_3-linux-builder:latest"
+DOCKER_IMAGE="asus/tinker_board_3n-debian12-linux-builder:latest"
 #cp ~/.gitconfig gitconfig
 cp -r $DIRECTORY_PATH_TO_SOURCE/debian/ubuntu-build-service/packages $DIRECTORY_PATH_TO_SOURCE/docker_builder/.
 docker build --build-arg userid=$(id -u) --build-arg groupid=$(id -g) --build-arg username=$(id -un) -t $DOCKER_IMAGE \

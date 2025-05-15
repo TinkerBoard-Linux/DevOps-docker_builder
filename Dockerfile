@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG userid
@@ -13,7 +13,7 @@ COPY ./qemu-aarch64-static .
 # Install required packages for building Debian
 RUN apt-get update
 RUN apt-get install -y g++-aarch64-linux-gnu
-RUN apt-get update && apt-get install -y git=1:2.25.1-1ubuntu3 ssh make gcc libssl-dev liblz4-tool expect g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib unzip device-tree-compiler ncurses-dev libgucharmap-2-90-dev bzip2 expat gpgv2 cpp-aarch64-linux-gnu libgmp-dev libmpc-dev
+RUN apt-get update && apt-get install -y ssh make gcc libssl-dev liblz4-tool expect g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib unzip device-tree-compiler ncurses-dev libgucharmap-2-90-dev bzip2 expat gpgv2 cpp-aarch64-linux-gnu libgmp-dev libmpc-dev
 
 # kmod: depmod is required by "make modules_install"
 RUN apt-get update && apt-get install -y kmod
@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y dpkg-dev
 RUN apt-get update && apt-get install -y devscripts
 # Install additional packages for building base debian system by ubuntu-build-service from linaro
 #RUN apt-get install -y binfmt-support qemu-user-static live-build
-RUN apt-get update && apt-get install -y bc time rsync zstd python python3 file vim-common sudo
+RUN apt-get update && apt-get install -y bc time rsync zstd python3 python2 python2-dev python3-dev python-is-python3 file vim-common sudo curl iputils-ping
 RUN apt-get update && apt-get install -y locales
 RUN apt-get update && apt-get install -y bsdmainutils
 RUN dpkg -i /packages/* || apt-get install -f -y
