@@ -20,6 +20,8 @@ RUN apt-get update && apt-get install -y kmod
 
 RUN apt-get update && apt-get install -y zip mtools
 
+RUN apt-get update && apt-get install -y fdisk parted
+
 #Install required packages to build Debian package
 RUN apt-get update && apt-get install -y dpkg-dev
 RUN apt-get update && apt-get install -y devscripts
