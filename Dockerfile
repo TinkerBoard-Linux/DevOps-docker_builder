@@ -1,8 +1,8 @@
-# Pinned to Canonical's jammy-20260810 release (published 2026-08-18) to avoid
+# Pinned to Canonical's jammy-20260731.1 release (published 2026-08-04) to avoid
 # silently picking up a newer Ubuntu 22.04 rebuild. Re-verify tar's version and
 # pseudo compatibility (see meta/recipes-devtools/pseudo/pseudo_git.bb) before
 # moving this pin.
-FROM ubuntu:22.04@sha256:2edbbc5dc405e9612ba3584ce95480277e3eb374407b5505fe26f17df77c7dbc
+FROM ubuntu:22.04@sha256:3b06811b2afd352be909dd088a004166d665dc76d38b13eada33522a9d915c6f
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG userid
